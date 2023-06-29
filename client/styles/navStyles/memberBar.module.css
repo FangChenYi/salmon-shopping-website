@@ -1,0 +1,149 @@
+.searchContainer {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80px;
+}
+
+.searchContainer .container {
+  width: 1200px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 60px;
+}
+
+.searchContainer .container .logo {
+  display: none;
+}
+
+.searchContainer .container .searchBar {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-left: 15px;
+}
+
+.searchContainer .container .searchBar .searchInput {
+  width: 100%;
+}
+
+.searchContainer .container .searchBar .searchInput input {
+  width: 100%;
+  height: 60px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 3px 0 0 3px;
+  padding-left: 10px;
+}
+
+.searchContainer .container .searchBtn {
+  background-color: #1687b4;
+  margin: 0 10px 0 20px;
+  border-radius: 3px;
+}
+
+.searchContainer .container .searchBtn a {
+  display: block;
+  font-size: 20px;
+  padding: 10px 25px;
+  color: #fff;
+}
+
+.searchContainer .searchCart {
+  width: 20%;
+}
+
+.searchContainer .searchCart a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.stateContainer {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.stateContainer .container {
+  margin-left: 15px;
+}
+
+.stateContainer .container .userState {
+  font-size: 1.2em;
+  color: #064874;
+  padding-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .searchContainer .container .logo {
+    width: 15%;
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .searchContainer .container .logo a {
+    font-size: 1.7em;
+    color: #fff;
+  }
+  .searchContainer .container .searchBar {
+    width: 75%;
+  }
+  .searchContainer .container .searchBar .searchInput {
+    margin-left: 0px;
+  }
+  .searchContainer .container .searchCart {
+    width: 10%;
+  }
+  .stateContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .stateContainer .container {
+    width: 1200px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .stateContainer .container .userState {
+    font-size: 1.7em;
+  }
+}
+/*# sourceMappingURL=memberBar.module.css.map */

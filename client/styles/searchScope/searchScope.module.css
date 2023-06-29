@@ -1,0 +1,192 @@
+.btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  border: none;
+  padding: 20px 15px;
+  color: #fff;
+  background-color: rgba(109, 133, 203, 0.8);
+}
+
+.noItem {
+  font-size: 2em;
+  color: #11426f;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.sortAndScope {
+  width: 220px;
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 10px;
+}
+
+.sortAndScope .sortAndScopeItem .sortContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+.sortAndScope .sortAndScopeItem .sortContainer .sortItem a {
+  color: #fff;
+}
+
+.sortAndScope .sortAndScopeItem .sortContainer .sortItem button {
+  cursor: pointer;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  background-color: #44799c;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 450px) {
+  .sortAndScope .sortAndScopeItem .sortContainer .sortItem button {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .sortAndScopeItem .sortContainer .sortItem button {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sortAndScope {
+    width: 100%;
+  }
+  .sortAndScope .sortAndScopeItem .sortContainer .sortItem {
+    margin-left: 30px;
+  }
+  .sortAndScope .sortAndScopeItem .sortContainer .sortItem button {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .container .noItem {
+    padding-left: 20px;
+  }
+  .container .sortAndScope {
+    width: 220px;
+  }
+  .container .sortAndScope .sortAndScopeItem + .sortAndScopeItem {
+    border-top: 1px solid #44799c;
+    margin-top: 20px;
+  }
+  .container .sortAndScope .sortAndScopeItem {
+    margin-top: 10px;
+  }
+  .container .sortAndScope .sortAndScopeItem .sortContainer {
+    display: block;
+  }
+  .container .sortAndScope .sortAndScopeItem .sortContainer .sortItem + .sortItem {
+    padding-top: 15px;
+  }
+  .container .sortAndScope .sortAndScopeItem .sortContainer .sortItem {
+    margin: 0;
+  }
+  .container .sortAndScope .sortAndScopeItem .sortContainer .sortItem button {
+    width: 100%;
+  }
+  .container .sortAndScope .sortAndScopeItem .priceScope {
+    text-align: center;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-top: 15px;
+  }
+  .container .sortAndScope .sortAndScopeItem .priceScope .priceScopeItem + .priceScopeItem {
+    padding-top: 20px;
+  }
+  .container .sortAndScope .sortAndScopeItem .priceScope .priceScopeItem p {
+    font-size: 1.2em;
+  }
+  .container .sortAndScope .sortAndScopeItem .priceScope .priceScopeItem button {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    outline: none;
+    background-color: #44799c;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  .container .sortAndScope .sortAndScopeItem .priceScope .priceScopeItem .priceScopeInput {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .sortAndScope .sortAndScopeItem .priceScope .priceScopeItem .priceScopeInput .priceScopeInputItem p {
+    padding: 0 10px;
+    vertical-align: middle;
+  }
+  .container .sortAndScope .sortAndScopeItem .priceScope .priceScopeItem .priceScopeInput .priceScopeInputItem input {
+    width: 60px;
+    height: 30px;
+    font-size: 1em;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+  }
+  .container .sortAndScope .sortAndScopeItem .sellerScope {
+    text-align: center;
+    padding-top: 15px;
+  }
+  .container .sortAndScope .sortAndScopeItem .sellerScope .sellerScopeItem + .sellerScopeItem {
+    padding-top: 20px;
+  }
+  .container .sortAndScope .sortAndScopeItem .sellerScope .sellerScopeItem p {
+    font-size: 1.2em;
+  }
+  .container .sortAndScope .sortAndScopeItem .sellerScope .sellerScopeItem input {
+    width: 100%;
+    height: 30px;
+    font-size: 1em;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+  }
+  .container .sortAndScope .sortAndScopeItem .sellerScope .sellerScopeItem button {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    outline: none;
+    background-color: #44799c;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+}
+/*# sourceMappingURL=searchScope.module.css.map */

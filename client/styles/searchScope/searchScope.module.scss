@@ -1,0 +1,244 @@
+.btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 15px 10px;
+  color: #fff;
+  background-color: rgba(26, 115, 182, 0.8);
+}
+
+.noItem {
+  font-size: 2em;
+  color: #11426f;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.sortAndScope {
+  width: 220px;
+  width: 100%;
+  user-select: none;
+  margin-top: 10px;
+  .sortAndScopeItem {
+    .sortContainer {
+      display: flex;
+      justify-content: space-around;
+      // padding: 15px 20px;
+      text-align: center;
+      .sortItem + .sortItem {
+        // padding-top: 15px;
+      }
+      .sortItem {
+        .latest {
+        }
+        .hotest {
+        }
+        .lowToHighSort {
+        }
+        .HighToLowSort {
+        }
+        a {
+          color: #fff;
+        }
+        button {
+          cursor: pointer;
+          border: none;
+          box-shadow: none;
+          outline: none;
+          background-color: rgb(68, 121, 156);
+          color: #fff;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 450px) {
+  .sortAndScope {
+    .sortAndScopeItem {
+      .sortContainer {
+        .sortItem + .sortItem {
+        }
+        .sortItem {
+          .latest {
+          }
+          .hotest {
+          }
+          .lowToHighSort {
+          }
+          .HighToLowSort {
+          }
+          button {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  .sortAndScopeItem {
+    .sortContainer {
+      .sortItem + .sortItem {
+      }
+      .sortItem {
+        .latest {
+        }
+        .hotest {
+        }
+        .lowToHighSort {
+        }
+        .HighToLowSort {
+        }
+        button {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .sortAndScope {
+    width: 100%;
+    .sortAndScopeItem {
+      .sortContainer {
+        .sortItem + .sortItem {
+        }
+        .sortItem {
+          margin-left: 30px;
+          .latest {
+          }
+          .hotest {
+          }
+          .lowToHighSort {
+          }
+          .HighToLowSort {
+          }
+          button {
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    .noItem {
+      padding-left: 20px;
+    }
+    .sortAndScope {
+      width: 220px;
+      .sortAndScopeItem + .sortAndScopeItem {
+        border-top: 1px solid rgb(68, 121, 156);
+        margin-top: 20px;
+      }
+      .sortAndScopeItem {
+        margin-top: 10px;
+        .sortContainer {
+          display: block;
+          .sortItem + .sortItem {
+            padding-top: 15px;
+          }
+          .sortItem {
+            margin: 0;
+            .latest {
+            }
+            .hotest {
+            }
+            .lowToHighSort {
+            }
+            .HighToLowSort {
+            }
+            button {
+              width: 100%;
+            }
+          }
+        }
+        .priceScope {
+          text-align: center;
+          box-sizing: border-box;
+          padding-top: 15px;
+          .priceScopeItem + .priceScopeItem {
+            padding-top: 20px;
+          }
+          .priceScopeItem {
+            p {
+              font-size: 1.2em;
+            }
+            button {
+              cursor: pointer;
+              width: 100%;
+              border: none;
+              box-shadow: none;
+              outline: none;
+              background-color: rgb(68, 121, 156);
+              color: #fff;
+              padding: 5px;
+              border-radius: 5px;
+              font-size: 1em;
+            }
+            .priceScopeInput {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .priceScopeInputItem {
+                p {
+                  padding: 0 10px;
+                  vertical-align: middle;
+                }
+                input {
+                  width: 60px;
+                  height: 30px;
+                  font-size: 1em;
+                  text-align: center;
+                  border: none;
+                  border-radius: 5px;
+                }
+              }
+            }
+          }
+        }
+        .sellerScope {
+          text-align: center;
+          padding-top: 15px;
+          .sellerScopeItem + .sellerScopeItem {
+            padding-top: 20px;
+          }
+          .sellerScopeItem {
+            p {
+              font-size: 1.2em;
+            }
+            input {
+              width: 100%;
+              height: 30px;
+              font-size: 1em;
+              text-align: center;
+              border: none;
+              border-radius: 5px;
+            }
+            button {
+              cursor: pointer;
+              width: 100%;
+              border: none;
+              box-shadow: none;
+              outline: none;
+              background-color: rgb(68, 121, 156);
+              color: #fff;
+              padding: 5px;
+              border-radius: 5px;
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

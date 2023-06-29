@@ -1,0 +1,28 @@
+.profile {
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 200px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.profile .profileContainer {
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.profile .profileContainer .profileItem {
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .profile {
+    width: 500px;
+    margin: auto;
+  }
+}
+/*# sourceMappingURL=profile.module.css.map */

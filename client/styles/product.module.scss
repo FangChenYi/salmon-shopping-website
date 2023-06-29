@@ -1,0 +1,408 @@
+// .productContainer {
+//   background-color: #fff;
+//   border-radius: 10px;
+//   width: 290px;
+//   margin: auto;
+//   margin-top: 10px;
+//   .product {
+//     padding: 10px;
+//     box-sizing: border-box;
+//     width: 100%;
+//     overflow: hidden;
+
+//     .productPhoto {
+//       width: 270px;
+//       height: 300px;
+//       // width: 100%;
+//       // height: 100%;
+
+//       img {
+//         object-fit: contain;
+//         width: 100%;
+//         height: 100%;
+//         max-width: 100%;
+//         max-height: 100%;
+//       }
+//     }
+//   }
+
+//   .productItem {
+//     padding: 5px 0;
+//     width: 100%;
+//   }
+
+//   .productName {
+//     // background-color: red;
+//     // width: 100%;
+//     h1 {
+//       height: 25px;
+//       font-size: 1.2em;
+//       display: -webkit-box;
+//       -webkit-box-orient: vertical;
+//       -webkit-line-clamp: 1;
+//       overflow: hidden;
+//       text-overflow: ellipsis;
+//     }
+//   }
+
+//   .productDescription {
+//     p {
+//       height: 15px;
+//       font-size: 0.8em;
+//       display: -webkit-box;
+//       -webkit-box-orient: vertical;
+//       -webkit-line-clamp: 1;
+//       overflow: hidden;
+//       text-overflow: ellipsis;
+//     }
+//   }
+
+//   .productSellerCartContainer {
+//     padding-top: 10px;
+//     display: flex;
+//     justify-content: space-between;
+//     .productSeller {
+//       width: 85%;
+//       p {
+//         white-space: nowrap;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//       }
+//     }
+//     .productCart {
+//       font-size: 1.5em;
+//       .icon {
+//         color: rgb(68, 121, 156);
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 450px) {
+//   .sortAndScope {
+//     .sortAndScopeItem {
+//       .sortContainer {
+//         .sortItem + .sortItem {
+//         }
+//         .sortItem {
+//           .latest {
+//           }
+//           .hotest {
+//           }
+//           .lowToHighSort {
+//           }
+//           .HighToLowSort {
+//           }
+//           button {
+//             font-size: 18px;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .productContainer {
+//     margin-top: 10px;
+//   }
+// }
+
+// @media screen and (min-width: 600px) {
+//   .products {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+// }
+
+// @media screen and (min-width: 1200px) {
+//   .products {
+//     width: 980px;
+//     justify-content: flex-start;
+//     .productContainer {
+//       background-color: #fff;
+//       border-radius: 10px;
+//       width: 230px;
+//       margin-top: 20px;
+//       margin-left: 15px;
+//       .product {
+//         .productPhoto {
+//           width: 210px;
+//           height: 240px;
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           overflow: hidden;
+
+//           img {
+//           }
+//         }
+//         .productItem {
+//         }
+
+//         .productName {
+//           h1 {
+//           }
+//         }
+
+//         .productDescription {
+//           p {
+//           }
+//         }
+
+//         .productSellerCartContainer {
+//           .productSeller {
+//             p {
+//             }
+//           }
+//           .productCart {
+//             .icon {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .productContainer {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 145px;
+    .product {
+      padding: 5px;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .productPhoto {
+        width: 135px;
+        height: 135px;
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          max-width: 100%;
+          max-height: 100%;
+          min-width: 100%;
+          min-height: 100%;
+          border-radius: 10px;
+          display: block;
+        }
+      }
+
+      .productItem {
+        box-sizing: border-box;
+        .productName {
+          height: 25px;
+          h1 {
+            height: 100%;
+            font-size: 1.2em;
+            font-weight: normal;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .productDescription {
+          height: 20px;
+          p {
+            height: 100%;
+            font-size: 0.8em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .productPrice {
+          height: 15px;
+        }
+        .productSelledCount {
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .productSellerCartContainer {
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        .productSeller {
+          p {
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .productCart {
+          margin-top: 2px;
+          .icon {
+            font-size: 18px;
+            color: rgb(68, 121, 156);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 370px) {
+  .products {
+    .productContainer {
+      width: 180px;
+      .product {
+        height: 285px;
+        .productPhoto {
+          width: 170px;
+          height: 170px;
+          img {
+          }
+        }
+
+        .productItem {
+          .productName {
+            h1 {
+            }
+          }
+          .productDescription {
+            p {
+            }
+          }
+          .productPrice {
+          }
+          .productSelledCount {
+            p {
+            }
+          }
+        }
+
+        .productSellerCartContainer {
+          .productSeller {
+            p {
+            }
+          }
+          .productCart {
+            .icon {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+}
+
+@media screen and (min-width: 768px) {
+  .products {
+    .productContainer {
+      width: 180px;
+      .product {
+        height: 285px;
+        .productPhoto {
+          width: 170px;
+          height: 170px;
+          img {
+          }
+        }
+
+        .productItem {
+          .productName {
+            h1 {
+            }
+          }
+          .productDescription {
+            p {
+            }
+          }
+          .productPrice {
+          }
+          .productSelledCount {
+            p {
+            }
+          }
+        }
+
+        .productSellerCartContainer {
+          .productSeller {
+            p {
+            }
+          }
+          .productCart {
+            .icon {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .products {
+    width: 980px;
+    justify-content: flex-start;
+    .productContainer {
+      width: 230px;
+      margin-top: 20px;
+      margin-left: 15px;
+      .product {
+        height: 400px;
+        .productPhoto {
+          width: 220px;
+          height: 240px;
+          img {
+          }
+        }
+
+        .productItem {
+          .productName {
+            height: 32px;
+            h1 {
+              height: 100%;
+              font-size: 1.3em;
+            }
+          }
+          .productDescription {
+            p {
+              font-size: 1em;
+            }
+          }
+          .productPrice {
+            p {
+              font-size: 1em;
+            }
+          }
+        }
+
+        .productSellerCartContainer {
+          height: 25px;
+          .productSeller {
+            height: 100%;
+            p {
+              font-size: 1.1em;
+            }
+          }
+          .productCart {
+            margin: 0;
+            .icon {
+              font-size: 1.5em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

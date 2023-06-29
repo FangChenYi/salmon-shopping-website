@@ -1,0 +1,316 @@
+.cart {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  .cartContainer {
+    .shopContainer {
+      padding: 10px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      background-color: #fff;
+      // margin-top: 20px;
+
+      .shopProductItem {
+        display: flex;
+        margin: 10px 0;
+        position: relative;
+
+        .shopProductPhoto {
+          width: 100px;
+          height: 100px;
+          img {
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            min-width: 100px;
+            min-height: 100px;
+          }
+        }
+        .shopProductContent {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-left: 10px;
+          overflow: hidden;
+          width: 100%;
+          .shopProductContainer {
+            display: flex;
+            justify-content: space-between;
+          }
+          .shopProductContentItem {
+            position: relative;
+            // background-color: red;
+            display: flex;
+            span {
+              font-size: 15px;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: flex;
+            }
+            .quantityContainer {
+              width: 69px;
+              // height: 22px;
+              display: flex;
+              border: 1px solid #ccc;
+              box-sizing: border-box;
+              .quantityMinus {
+                width: 15px;
+                height: 15px;
+                border-right: 1px solid #ccc;
+                padding: 2px;
+                user-select: none;
+                .icon {
+                  cursor: pointer;
+                }
+              }
+              .quantityInput {
+                input {
+                  width: 30px;
+                  height: 20px;
+                  outline: none;
+                  border: none;
+                  text-align: center;
+                  font-size: 15px;
+                }
+              }
+              .quantityPlus {
+                width: 15px;
+                height: 15px;
+                border-left: 1px solid #ccc;
+                padding: 2px;
+                user-select: none;
+                .icon {
+                  cursor: pointer;
+                }
+              }
+            }
+            .shopDeleteProduct {
+              margin-left: 5px;
+              button {
+                cursor: pointer;
+                border: none;
+                box-shadow: none;
+                outline: none;
+                background-color: #fff;
+                color: red;
+                font-size: 10px;
+              }
+            }
+            .shopProductPrice {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+      .shopPriceTotal {
+        text-align: right;
+      }
+      .shopBtnContainer {
+        margin-top: 5px;
+        text-align: right;
+        a {
+          background-color: #82bbe4;
+          font-size: 15px;
+          color: #fff;
+          border-radius: 3px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (mix-width: 450px) {
+  .cart {
+    .cartContainer {
+      .shopContainer {
+        .shopName {
+          span {
+          }
+        }
+        .shopProductItem {
+          .shopProductPhoto {
+            img {
+            }
+          }
+          .shopProductContent {
+            .shopProductContentItem {
+              .quantityContainer {
+                .quantityMinus {
+                  a {
+                  }
+                }
+                .quantityInput {
+                  input {
+                  }
+                }
+                .quantityPlus {
+                  a {
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .shopBtnContainer {
+          a {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .cart {
+    .cartContainer {
+      .shopContainer {
+        .shopName {
+          span {
+            font-size: 1.3em;
+          }
+        }
+        .shopProductItem {
+          .shopProductPhoto {
+            width: 120px;
+            height: 120px;
+            img {
+              min-width: 120px;
+              min-height: 120px;
+            }
+          }
+          .shopProductContent {
+            .shopProductContentItem {
+              background-color: #fff;
+              span {
+                font-size: 20px;
+              }
+              .quantityContainer {
+                .quantityMinus {
+                  a {
+                  }
+                }
+                .quantityInput {
+                  input {
+                  }
+                }
+                .quantityPlus {
+                  a {
+                  }
+                }
+              }
+            }
+          }
+          .shopDeleteProduct {
+            bottom: 0;
+            left: 205px;
+            button {
+            }
+          }
+        }
+
+        .shopBtnContainer {
+          a {
+            font-size: 1.3em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cart {
+    .cartContainer {
+      .shopContainer {
+        .shopName {
+          span {
+          }
+        }
+        .shopProductItem {
+          .shopProductPhoto {
+            img {
+            }
+          }
+          .shopProductContent {
+            .shopProductContentItem {
+              .quantityContainer {
+                .quantityMinus {
+                  a {
+                  }
+                }
+                .quantityInput {
+                  input {
+                  }
+                }
+                .quantityPlus {
+                  a {
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .shopBtnContainer {
+          a {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cart {
+    margin-top: 20px;
+    margin-left: 20px;
+    .cartContainer {
+      .shopContainer {
+        .shopName {
+          span {
+          }
+        }
+        .shopProductItem {
+          .shopProductPhoto {
+            img {
+            }
+          }
+          .shopProductContent {
+            .shopProductContentItem {
+              .quantityContainer {
+                .quantityMinus {
+                  a {
+                  }
+                }
+                .quantityInput {
+                  input {
+                  }
+                }
+                .quantityPlus {
+                  a {
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .shopBtnContainer {
+          a {
+          }
+        }
+      }
+    }
+  }
+}

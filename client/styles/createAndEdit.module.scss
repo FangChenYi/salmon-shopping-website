@@ -1,0 +1,233 @@
+.createAndEdit {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .createAndEditContainer {
+    margin: auto;
+    padding: 10px 15px 10px 10px;
+    width: 80%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #fff;
+
+    .createAndEditNotFound {
+      text-align: center;
+      span {
+        font-size: 1em;
+      }
+    }
+
+    .createAndEditTitle {
+      text-align: center;
+      span {
+        font-size: 1.2em;
+      }
+    }
+    .formInputFile {
+      // width: 220px;
+      // height: 230px;
+      input {
+        // width: 100%;
+        width: 30px;
+        height: 30px;
+        outline: none;
+        width: calc(100% - 5px);
+        font-size: 0.8em;
+        margin-top: 5px;
+      }
+      img {
+        object-fit: contain;
+        // width: 100%;
+        // height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    .formContainer {
+      // background-color: #aaf;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      // margin-bottom: 20px;
+
+      .formItem + .formItem {
+        padding-top: 15px;
+      }
+      .formItem {
+        width: 100%;
+        input {
+          // width: 100%;
+          height: 30px;
+          outline: none;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          padding-left: 5px;
+          width: calc(100% - 5px);
+          font-size: 0.8em;
+          margin-top: 5px;
+        }
+      }
+
+      .errorMessage {
+        background-color: rgba(255, 0, 0, 0.188);
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px 0;
+        align-items: start;
+        border-radius: 3px;
+        display: inline;
+        span {
+          color: rgb(255, 108, 108);
+          font-size: 0.8em;
+        }
+      }
+      .formBtnContainer {
+        // background-color: red;
+        width: 100%;
+        .formBtn {
+          margin-top: 10px;
+          button {
+            background-color: #82bbe4;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            height: 30px;
+            width: 100%;
+            align-items: center;
+            font-size: 15px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 450px) {
+  .createAndEdit {
+    margin-top: 20px;
+    .createAndEditContainer {
+      .formContainer {
+        span {
+        }
+        .formInputFile {
+          input {
+          }
+        }
+        .formItem + .formItem {
+        }
+        .formItem {
+          input {
+          }
+        }
+
+        .formBtn {
+          button {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .createAndEdit {
+    .createAndEditContainer {
+      .createAndEditNotFound {
+        span {
+          font-size: 1.3em;
+        }
+      }
+
+      .createAndEditTitle {
+        text-align: center;
+        span {
+          font-size: 1.5em;
+        }
+      }
+      .formInputFile {
+        span {
+          font-size: 1.3em;
+        }
+        input {
+        }
+      }
+      .formContainer {
+        font-size: 1.3em;
+
+        .formItem + .formItem {
+        }
+        .formItem {
+          input {
+          }
+        }
+
+        .formBtn {
+          button {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .createAndEdit {
+    .createAndEditContainer {
+      width: 600px;
+      .formContainer {
+        font-size: 1.3em;
+        .formInputFile {
+          input {
+          }
+        }
+        .formItem + .formItem {
+        }
+        .formItem {
+          input {
+          }
+        }
+
+        .formBtn {
+          button {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .createAndEdit {
+    padding-left: 100px;
+    .createAndEditContainer {
+      .createAndEditNotFound {
+        span {
+          font-size: 2em;
+        }
+      }
+      width: 600px;
+      .formContainer {
+        font-size: 1.3em;
+        .formInputFile {
+          input {
+          }
+        }
+        .formItem + .formItem {
+        }
+        .formItem {
+          input {
+          }
+        }
+
+        .formBtn {
+          button {
+          }
+        }
+      }
+    }
+  }
+}

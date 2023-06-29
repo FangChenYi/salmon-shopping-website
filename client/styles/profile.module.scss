@@ -1,0 +1,37 @@
+.profile {
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 200px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  .profileContainer {
+    background-color: #fff;
+    border-radius: 10px;
+
+    // padding: 20px;
+    text-align: center;
+    .profileItem {
+      font-size: 1.2em;
+      padding: 10px;
+      span {
+      }
+      p {
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .profile {
+    width: 500px;
+    margin: auto;
+    .profileContainer {
+      .profileItem {
+        p {
+        }
+      }
+    }
+  }
+}
