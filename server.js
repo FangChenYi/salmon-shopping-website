@@ -8,7 +8,6 @@ const { authRoute, sellerRoute, cartRoute, orderRoute } = require("./routes");
 const passport = require("passport");
 require("./config/passport")(passport);
 const Product = require("./models").product;
-const Cart = require("./models").cart;
 const path = require("path");
 const port = process.env.PORT || 8080;
 
