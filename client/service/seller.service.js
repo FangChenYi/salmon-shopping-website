@@ -1,5 +1,6 @@
 import axios from "axios";
-const API_SELLER_URL = "http://localhost:8080/seller";
+const API_SELLER_URL =
+  "https://salmon-shopping-website-e05c875d1abf.herokuapp.com/seller";
 
 class SellerService {
   // 取得賣家的所有商品

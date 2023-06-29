@@ -1,5 +1,6 @@
 import axios from "axios";
-const API_USER_URL = "http://localhost:8080/user";
+const API_USER_URL =
+  "https://salmon-shopping-website-e05c875d1abf.herokuapp.com/user";
 
 class AuthService {
   getUser(email) {

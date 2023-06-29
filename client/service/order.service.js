@@ -1,5 +1,6 @@
 import axios from "axios";
-const API_ORDER_URL = "http://localhost:8080/user/order";
+const API_ORDER_URL =
+  "https://salmon-shopping-website-e05c875d1abf.herokuapp.com/user/order";
 
 class OrderService {
   get() {
