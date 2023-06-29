@@ -44,14 +44,14 @@ app.use(
 );
 
 // 查看所有商品;
-app.get("/", async (req, res) => {
-  try {
-    let foundProduct = await Product.find({}).exec();
-    return res.send(foundProduct);
-  } catch (e) {
-    return res.status(500).send("載入商品過程發生錯誤");
-  }
-});
+// app.get("/", async (req, res) => {
+//   try {
+//     let foundProduct = await Product.find({}).exec();
+//     return res.send(foundProduct);
+//   } catch (e) {
+//     return res.status(500).send("載入商品過程發生錯誤");
+//   }
+// });
 
 // 使用商品名稱搜尋商品
 app.get("/search/:title", async (req, res) => {
