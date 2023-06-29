@@ -43,7 +43,7 @@ app.use(
   sellerRoute
 );
 
-查看所有商品;
+// 查看所有商品;
 app.get("/", async (req, res) => {
   try {
     let foundProduct = await Product.find({}).exec();
@@ -72,7 +72,7 @@ if (
   process.env.NODE_ENV === "staging"
 ) {
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.js"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
 
