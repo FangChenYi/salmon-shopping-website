@@ -185,7 +185,9 @@ export default function Home({ products }) {
 }
 
 export async function getServerSideProps() {
-  const response = await fetch("http://localhost:8080");
+  const response = await fetch(
+    "https://salmon-shopping-website-e05c875d1abf.herokuapp.com"
+  );
   const products = await response.json();
   return {
     props: {
