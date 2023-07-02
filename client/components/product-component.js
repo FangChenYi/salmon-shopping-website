@@ -26,12 +26,6 @@ export default function ProductComponent({ product }) {
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (product.photo) {
-  //     setImageSrc(product.photo);
-  //   }
-  // }, [product.photo]);
-
   const handleCart = async () => {
     try {
       if (!currentuser) {
@@ -47,7 +41,7 @@ export default function ProductComponent({ product }) {
         }
         await CartService.post(product._id);
         window.alert("已新增至購物車");
-        router.push("/");
+        // router.push("/");
       }
     } catch (e) {
       console.log(e);

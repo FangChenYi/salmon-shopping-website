@@ -4,11 +4,107 @@ const Order = require("../models").order;
 const SellerOrder = require("../models").sellerOrder;
 const Cart = require("../models").cart;
 const productValidation = require("../validation.js").productValidation;
+// const path = require("path");
+const multer = require("multer");
+const fs = require("fs");
+const Image = require("../models/image-model");
 
 router.use((req, res, next) => {
   console.log("seller route..");
   next();
 });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + "-" + uniqueSuffix);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter(req, file, cb) {
+    // 只接受圖片類型的檔案
+    if (!file.mimetype.startsWith("image/")) {
+      return cb(new Error("Please upload an image"));
+    }
+    cb(null, true);
+  },
+});
+
+router.post("/image", upload.single("imagePhoto"), async (req, res) => {
+  try {
+    // const { imagePhoto } = req.file;
+    // const imageBuffer = fs.readFileSync(imagePhoto.path);
+    const { name } = req.body;
+    const newImage = new Image({
+      name: name,
+      imagePhoto: req.file.path,
+    });
+    const savedImage = await newImage.save();
+    // fs.unlinkSync(imagePhoto.path);
+
+    return res.send({
+      message: "成功儲存圖片",
+      savedImage,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.send({
+      message: "失敗",
+      e,
+    });
+  }
+});
+
+router.get("/image", async (req, res) => {
+  try {
+    const productFound = await Image.find({}).exec();
+    return res.send(productFound);
+  } catch (e) {
+    console.log(e);
+    return res.status(500).send("無法查看商品");
+  }
+});
+
+router.delete("/image", async (req, res) => {
+  try {
+    const result = await Image.deleteMany({}).exec();
+    return res.send(result);
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+// router.post("/", upload.single("photo"), async (req, res) => {
+//   let { error } = productValidation(req.body);
+//   if (error) return res.status(400).send(error.details[0].message);
+//   let { photo, name, description, price, date } = req.body;
+//   try {
+//     let newProduct = new Product({
+//       photo: req.user.file,
+//       name,
+//       description,
+//       price,
+//       sellerName: req.user.username,
+//       sellerID: req.user._id,
+//       date,
+//     });
+
+//     let savedProduct = await newProduct.save();
+
+//     return res.send({
+//       message: "已新增商品",
+//       savedProduct,
+//     });
+//   } catch (e) {
+//     console.log(e);
+//     return res.status(500).send("無法新增商品");
+//   }
+// });
 
 // 查看賣家自己的所有商品
 router.get("/", async (req, res) => {
@@ -48,32 +144,32 @@ router.get("/:_id", async (req, res) => {
 });
 
 // 新增商品
-router.post("/", async (req, res) => {
-  let { error } = productValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+// router.post("/", upload.single("photo"), async (req, res) => {
+//   let { error } = productValidation(req.body);
+//   if (error) return res.status(400).send(error.details[0].message);
 
-  let { photo, name, description, price, date } = req.body;
-  try {
-    let newProduct = new Product({
-      photo,
-      name,
-      description,
-      price,
-      sellerName: req.user.username,
-      sellerID: req.user._id,
-      date,
-    });
-    let savedProduct = await newProduct.save();
+//   let { photo, name, description, price, date } = req.body;
+//   try {
+//     let newProduct = new Product({
+//       photo,
+//       name,
+//       description,
+//       price,
+//       sellerName: req.user.username,
+//       sellerID: req.user._id,
+//       date,
+//     });
+//     let savedProduct = await newProduct.save();
 
-    return res.send({
-      message: "已新增商品",
-      savedProduct,
-    });
-  } catch (e) {
-    console.log(e);
-    return res.status(500).send("無法新增商品");
-  }
-});
+//     return res.send({
+//       message: "已新增商品",
+//       savedProduct,
+//     });
+//   } catch (e) {
+//     console.log(e);
+//     return res.status(500).send("無法新增商品");
+//   }
+// });
 
 // 修改商品資料
 router.put("/edit/:_id", async (req, res) => {

@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -8,6 +9,16 @@ export default function SearchBarComponent({
   handleSearchProduct,
   searchInput,
 }) {
+  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  const handleEnterPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      buttonRef.current.click();
+    }
+  };
+
   return (
     <div>
       <div className={styles.searchContainer}>
@@ -23,13 +34,15 @@ export default function SearchBarComponent({
                 type="text"
                 onChange={(e) => setSearchInput(e.target.value)}
                 value={searchInput}
+                ref={inputRef}
+                onKeyDown={handleEnterPress}
                 placeholder="註冊獲得全站購物金"
               />
             </div>
             <div className={styles.searchBtn}>
-              <Link onClick={handleSearchProduct} href="#">
+              <button onClick={handleSearchProduct} ref={buttonRef}>
                 <FontAwesomeIcon icon={faSearch} />
-              </Link>
+              </button>
             </div>
           </div>
           <div className={styles.searchCart}>

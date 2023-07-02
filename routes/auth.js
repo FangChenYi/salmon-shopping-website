@@ -61,7 +61,6 @@ router.post("/login", async (req, res) => {
     if (match) {
       const tokenObject = { _id: foundUser._id, email: foundUser.email };
       const token = jwt.sign(tokenObject, process.env.PASSPORT_SECRET);
-
       return res.send({
         message: "成功登入",
         token: "JWT " + token,

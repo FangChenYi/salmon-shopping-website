@@ -29,7 +29,6 @@ export default function CartProductComponent({
       setProductQuantity(newQuantity);
       setTotalAmount(newTotalAmount);
       await CartService.patch(product.productID, newQuantity, newTotalAmount);
-      window.location.reload();
     }
   };
 
@@ -39,17 +38,6 @@ export default function CartProductComponent({
     setProductQuantity(newQuantity);
     setTotalAmount(newTotalAmount);
     await CartService.patch(product.productID, newQuantity, newTotalAmount);
-
-    // setData((prevData) => {
-    //   const newData = { ...prevData };
-    //   newData[userID][group.sellerID].products.forEach((p) => {
-    //     if (p.productID === product.productID) {
-    //       p.productQuantity = newQuantity;
-    //       p.productTotalAmount = newTotalAmount;
-    //     }
-    //   });
-    //   return newData;
-    // });
   };
 
   const handleDeleteProduct = async () => {

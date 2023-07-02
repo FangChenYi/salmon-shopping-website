@@ -9,7 +9,7 @@ const passport = require("passport");
 require("./config/passport")(passport);
 const Product = require("./models").product;
 const path = require("path");
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION)
@@ -76,6 +76,6 @@ if (
   });
 }
 
-app.listen(port, () => {
+app.listen(8080, () => {
   console.log("port 8080..");
 });

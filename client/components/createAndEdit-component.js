@@ -47,24 +47,12 @@ export default function CreateAndEditComponent({ sellerProduct }) {
     setPrice(e.target.value);
   };
 
-  function converToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  }
-
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
-    const base64 = await converToBase64(file);
-    setPhoto({ file: base64 });
-    // setPhoto(base64);
+    const reader = new FileReader();
+    reader.onload = () => {
+      setPhoto({ file });
+    };
   };
 
   const handlePostProduct = async () => {
@@ -235,3 +223,21 @@ export default function CreateAndEditComponent({ sellerProduct }) {
     </div>
   );
 }
+
+// function converToBase64(file) {
+//   return new Promise((resolve, reject) => {
+//     const fileReader = new FileReader();
+//     fileReader.readAsDataURL(file);
+//     fileReader.onload = () => {
+//       resolve(fileReader.result);
+//     };
+//     fileReader.onerror = (error) => {
+//       reject(error);
+//     };
+//   });
+// }
+// const handleFileUpload = async (e) => {
+//   const file = e.target.files[0];
+//   // const base64 = await converToBase64(file);
+//   setPhoto({ file: base64 });
+// };

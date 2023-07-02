@@ -67,6 +67,6 @@ const productValidation = (data) => {
 
 module.exports = {
   registerValidation,
-  productValidation,
   loginValidation,
+  productValidation,
 };

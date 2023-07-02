@@ -1,7 +1,7 @@
 import styles from "../styles/searchScope/searchScope.module.scss";
 import cartStyles from "../styles/cart.module.scss";
 import productStyles from "../styles/product.module.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import AuthService from "../service/auth.service";
 import SellerService from "../service/seller.service";
@@ -10,34 +10,17 @@ import { useRouter } from "next/router";
 import CreateAndEditComponent from "./createAndEdit-component";
 import CartProductComponent from "./cartProduct-component";
 
-export default function SellerComponent({}) {
+export default function SellerComponent({ windowWidth, setwindowWidth }) {
   const router = useRouter();
+  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
   const isSeller = router.pathname === "/seller";
   const isSellerOrder = router.pathname === "/seller/order";
   const [currentUser, setCurrentUser] = useState(null);
-  const [windowWidth, setwindowWidth] = useState(false);
   const [sellerProduct, setSellerProduct] = useState(null);
   const [sellerOrder, setSellerOrder] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(null);
-  const [sortedProducts, setSortedProducts] = useState("");
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1200) {
-        setwindowWidth(true);
-      } else {
-        setwindowWidth(false);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
@@ -67,6 +50,13 @@ export default function SellerComponent({}) {
       router.push("/user/login");
     }
   }, []);
+
+  const handleEnterPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      buttonRef.current.click();
+    }
+  };
 
   const handleSortLatest = () => {
     const sortedByDate = [...sellerProduct].sort((a, b) => {
@@ -163,11 +153,15 @@ export default function SellerComponent({}) {
                   <input
                     type="text"
                     value={searchInput}
+                    ref={inputRef}
+                    onKeyDown={handleEnterPress}
                     onChange={(e) => setSearchInput(e.target.value)}
                   />
                 </div>
                 <div className={styles.sellerScopeItem}>
-                  <button onClick={handleSearchProduct}>搜尋</button>
+                  <button onClick={handleSearchProduct} ref={buttonRef}>
+                    搜尋
+                  </button>
                 </div>
               </div>
             </div>
@@ -192,8 +186,6 @@ export default function SellerComponent({}) {
         ) : (
           <CreateAndEditComponent sellerProduct={sellerProduct} />
         )}
-
-        {/* {console.log(sellerOrder)} */}
 
         {sellerOrder && currentUser && Object.values(sellerOrder).length > 0 ? (
           <div className={cartStyles.cart}>

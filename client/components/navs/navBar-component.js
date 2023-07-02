@@ -12,14 +12,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "../../styles/navStyles/navBar.module.scss";
 import AuthService from "../../service/auth.service";
 
-export default function NavBarComponent({ currentUser, setCurrentUser }) {
+export default function NavBarComponent() {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  const isCart = router.pathname === "/user/cart";
   const isLogin = router.pathname === "/user/login";
   const isRegister = router.pathname === "/user/register";
   const [isVisible, setIsVisible] = useState(false);
   const [visibleHome, setVisibleHome] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const handleCheckboxChange = () => {
     setIsVisible(!isVisible);
@@ -27,36 +27,7 @@ export default function NavBarComponent({ currentUser, setCurrentUser }) {
     // <768時會是false，反轉就是true
   };
 
-  useEffect(() => {
-    const user = AuthService.getCurrentUser();
-    setCurrentUser(user);
-    const a = () => {
-      const user = AuthService.getCurrentUser();
-      setCurrentUser(user);
-    };
-
-    router.events.on("routeChangeStart", a);
-
-    return () => {
-      router.events.off("routeChangeStart", a);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      // 在<768時，點擊其他route，導覽列會消失
-      if (window.innerWidth < 768) {
-        setIsVisible(false);
-      }
-    };
-
-    router.events.on("routeChangeStart", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, []);
-
+  // 處理rwd選單，導覽列是否顯示
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -76,6 +47,35 @@ export default function NavBarComponent({ currentUser, setCurrentUser }) {
     return () => {
       // 每次監聽完後需釋放資源
       window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // 處理rwd選單，在<768時，點擊其他route，導覽列會消失
+  useEffect(() => {
+    const handleRouteChange = () => {
+      if (window.innerWidth < 768) {
+        setIsVisible(false);
+      }
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
+
+  // 處理登入登出後馬上更新導覽列
+  useEffect(() => {
+    const getUser = () => {
+      const user = AuthService.getCurrentUser();
+      setCurrentUser(user);
+    };
+
+    router.events.on("routeChangeStart", getUser);
+
+    return () => {
+      router.events.off("routeChangeStart", getUser);
     };
   }, []);
 
@@ -117,7 +117,7 @@ export default function NavBarComponent({ currentUser, setCurrentUser }) {
 
               {!isHome && (
                 <li>
-                  <Link href="/" onClick={() => window.location.reload()}>
+                  <Link href="/">
                     <FontAwesomeIcon icon={faHouse} />
                   </Link>
                 </li>
@@ -150,7 +150,7 @@ export default function NavBarComponent({ currentUser, setCurrentUser }) {
                     <li>
                       <Link href="/user/profile">會員中心</Link>
                     </li>
-                    {!isHome && !isCart && !isRegister && !isLogin && (
+                    {!isHome && !isRegister && !isLogin && (
                       <li>
                         <Link href="/user/cart">購物車</Link>
                       </li>

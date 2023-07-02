@@ -6,11 +6,6 @@ import React, { useState, useEffect } from "react";
 import AuthService from "../service/auth.service";
 
 export default function Layout({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
-  useEffect(() => {
-    const user = AuthService.getCurrentUser();
-    setCurrentUser(user);
-  }, []);
   return (
     <div>
       <Head>
@@ -20,10 +15,7 @@ export default function Layout({ children }) {
       </Head>
       <header>
         <div className={styles.header}>
-          <NavBarComponent
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
-          />
+          <NavBarComponent />
 
           <MemberBarComponent />
         </div>

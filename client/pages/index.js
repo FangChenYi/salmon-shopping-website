@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/searchScope/searchScope.module.scss";
 import productStyles from "../styles/product.module.scss";
 import Product from "../components/product-component";
 import SearchBarComponent from "../components/navs/searchBar-component";
 
 export default function Home({ products }) {
+  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
   const [windowWidth, setwindowWidth] = useState(false);
   const [sortedProducts, setSortedProducts] = useState(products);
   const [minPrice, setMinPrice] = useState("");
@@ -28,6 +30,13 @@ export default function Home({ products }) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleEnterPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      buttonRef.current.click();
+    }
+  };
 
   const handleScrollToTop = () => {
     window.scrollTo({
@@ -131,6 +140,8 @@ export default function Home({ products }) {
                       <input
                         type="text"
                         value={minPrice}
+                        ref={inputRef}
+                        onKeyDown={handleEnterPress}
                         onChange={(e) => setMinPrice(e.target.value)}
                       />
                     </div>
@@ -141,13 +152,17 @@ export default function Home({ products }) {
                       <input
                         type="text"
                         value={maxPrice}
+                        ref={inputRef}
+                        onKeyDown={handleEnterPress}
                         onChange={(e) => setMaxPrice(e.target.value)}
                       />
                     </div>
                   </div>
                 </div>
                 <div className={styles.priceScopeItem}>
-                  <button onClick={handleApplyFilter}>套用</button>
+                  <button onClick={handleApplyFilter} ref={buttonRef}>
+                    套用
+                  </button>
                 </div>
               </div>
             </div>
@@ -162,12 +177,16 @@ export default function Home({ products }) {
                   <input
                     type="text"
                     value={sellerInput}
+                    ref={inputRef}
+                    onKeyDown={handleEnterPress}
                     onChange={(e) => setSellerInput(e.target.value)}
                   />
                 </div>
 
                 <div className={styles.sellerScopeItem}>
-                  <button onClick={handleSearchSeller}>搜尋</button>
+                  <button onClick={handleSearchSeller} ref={buttonRef}>
+                    搜尋
+                  </button>
                 </div>
               </div>
             </div>

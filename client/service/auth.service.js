@@ -1,5 +1,6 @@
 import axios from "axios";
 const API_USER_URL =
+  "http://localhost:8080/user" ||
   "https://salmon-shopping-website-e05c875d1abf.herokuapp.com/user";
 
 class AuthService {
@@ -26,10 +27,6 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  loginGoogle() {
-    return axios.get(API_USER_URL + "/google");
-  }
-
   getCurrentUser() {
     const userJson = localStorage.getItem("user");
     try {
@@ -37,10 +34,6 @@ class AuthService {
     } catch (e) {
       console.log(e);
     }
-  }
-
-  getGoogleID(googleID) {
-    return axios.post(`${API_USER_URL}/${googleID}`);
   }
 }
 

@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const productSchema = new Schema({
   photo: {
-    type: String,
+    type: Buffer,
     required: true,
   },
   name: {
