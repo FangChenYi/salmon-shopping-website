@@ -45,7 +45,6 @@ export default function ProductComponent({ product }) {
         }
         await CartService.post(product._id);
         window.alert("已新增至購物車");
-        window.location.reload();
       }
     } catch (e) {
       console.log(e);
