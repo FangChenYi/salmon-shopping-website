@@ -5,8 +5,6 @@ const SellerOrder = require("../models").sellerOrder;
 const Cart = require("../models").cart;
 const productValidation = require("../validation.js").productValidation;
 const upload = require("../multer/multerMiddleware");
-const Image = require("../models/image-model");
-const { connections } = require("mongoose");
 
 router.use((req, res, next) => {
   console.log("seller route..");
