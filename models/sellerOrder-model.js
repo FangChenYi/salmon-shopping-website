@@ -42,7 +42,7 @@ const sellerOrderSchema = new mongoose.Schema({
           required: true,
         },
         productPhoto: {
-          type: String,
+          type: Buffer,
           required: true,
         },
         productPrice: {

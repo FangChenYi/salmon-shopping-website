@@ -14,7 +14,6 @@ export default function ProductComponent({ product }) {
   const router = useRouter();
   const isUser = router.pathname === "/";
   const isSeller = router.pathname === "/seller";
-  const [imageSrc, setImageSrc] = useState("");
   const [currentuser, setCurrentUser] = useState(null);
   const [userID, setUserID] = useState(null);
 
@@ -25,6 +24,11 @@ export default function ProductComponent({ product }) {
       setUserID(user.user._id);
     }
   }, []);
+
+  const bufferToBase64 = (buffer) => {
+    const buf = Buffer.from(buffer, "utf8");
+    return buf.toString("base64");
+  };
 
   const handleCart = async () => {
     try {
@@ -53,7 +57,12 @@ export default function ProductComponent({ product }) {
       <div className={styles.productContainer}>
         <div className={styles.product}>
           <div className={styles.productPhoto}>
-            <img src={product.photo} alt="Product Photo" />
+            <img
+              src={`data:image/png;base64,${bufferToBase64(
+                product.photo.data
+              )}`}
+              alt="Product Photo"
+            />
           </div>
 
           <div className={styles.productItem}>

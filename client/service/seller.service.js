@@ -1,6 +1,6 @@
 import axios from "axios";
 const API_SELLER_URL =
-  "http://localhost:8080/seller" ||
+  // "http://localhost:8080/seller";
   "https://salmon-shopping-website-e05c875d1abf.herokuapp.com/seller";
 
 class SellerService {
@@ -81,41 +81,33 @@ class SellerService {
   }
 
   // 新增商品
-  post(photo, name, description, price) {
+  post(formData) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
     } else {
       token = "";
     }
-    return axios.post(
-      API_SELLER_URL,
-      { photo, name, description, price },
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
+    return axios.post(API_SELLER_URL, formData, {
+      headers: {
+        Authorization: token,
+      },
+    });
   }
 
   // 更新商品資料
-  put(id, photo, name, description, price) {
+  put(id, formData) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
     } else {
       token = "";
     }
-    return axios.put(
-      `${API_SELLER_URL}/edit/${id}`,
-      { photo, name, description, price },
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
+    return axios.put(`${API_SELLER_URL}/edit/${id}`, formData, {
+      headers: {
+        Authorization: token,
+      },
+    });
   }
 
   deleteProdutct(id) {

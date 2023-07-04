@@ -43,7 +43,7 @@ export default function AuthsComponent({}) {
       const redirectPath = localStorage.getItem("redirectPath");
       if (redirectPath) {
         localStorage.removeItem("redirectPath");
-        router.push(redirectPath);
+        window.location.href = redirectPath;
       } else {
         router.push("/");
       }

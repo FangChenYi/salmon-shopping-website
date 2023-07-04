@@ -32,7 +32,6 @@ router.post("/:_id", async (req, res) => {
 
     if (cartFound) {
       try {
-        // console.log(cartFound.product.productQuantity);
         const newQuantity = (cartFound.product.productQuantity += 1);
         cartFound.product.productTotalAmount =
           cartFound.product.productPrice * newQuantity;

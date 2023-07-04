@@ -3,7 +3,7 @@ import SellerService from "../service/seller.service";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-export default function CreateAndEditComponent({ sellerProduct }) {
+export default function CreateAndEditComponent({}) {
   const router = useRouter();
   const { id } = router.query;
   const isCreate = router.pathname === "/seller/create";
@@ -15,6 +15,8 @@ export default function CreateAndEditComponent({ sellerProduct }) {
   const [price, setPrice] = useState("");
   const [message, setMessage] = useState("");
   const [productId, setProductId] = useState(null);
+  const [base64, setBase64] = useState("");
+  const [file, setFile] = useState(null);
 
   // 在/edit時取得原資料在input上
   useEffect(() => {
@@ -22,18 +24,25 @@ export default function CreateAndEditComponent({ sellerProduct }) {
       try {
         const productData = await SellerService.getSellerProduct(id);
         setProductId(productData.data[0]._id);
-        setPhoto({ file: productData.data[0].photo });
         setName(productData.data[0].name);
         setDescription(productData.data[0].description);
         setPrice(productData.data[0].price);
+        const result = await bufferToBase64(productData.data[0].photo.data);
+        setBase64(`data:image/png;base64,${result}`);
       } catch (e) {
         console.log(e);
       }
     };
+
     if (isEdit) {
       getSellerProduct();
     }
   }, [id]);
+
+  const bufferToBase64 = (buffer) => {
+    const buf = Buffer.from(buffer, "utf8");
+    return buf.toString("base64");
+  };
 
   const handleChangeName = (e) => {
     setName(e.target.value);
@@ -49,15 +58,79 @@ export default function CreateAndEditComponent({ sellerProduct }) {
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
+    const compressedFile = await compressImage(file);
+    converToBase64(compressedFile); // 轉base64，預覽圖片
+    setPhoto(compressedFile);
+    setFile(compressedFile); // 更新商品確認是否有更改（上傳）圖片
+  };
+
+  // 壓縮圖片
+  const compressImage = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const maxWidth = 300;
+          const maxHeight = 300;
+          let width = img.width;
+          let height = img.height;
+
+          // 根據最大寬高縮放
+          if (width > height) {
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+          } else {
+            if (height > maxHeight) {
+              width = Math.round((width * maxHeight) / height);
+              height = maxHeight;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, width, height);
+
+          canvas.toBlob(
+            (blob) => {
+              const compressedFile = new File([blob], file.name, {
+                type: file.type,
+                lastModified: Date.now(),
+              });
+              resolve(compressedFile);
+            },
+            file.type,
+            0.1
+          );
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+  };
+
+  // 預覽圖片
+  const converToBase64 = async (file) => {
     const reader = new FileReader();
-    reader.onload = () => {
-      setPhoto({ file });
+    reader.readAsDataURL(file); //執行後會有一個result屬性，result的值會放file轉換完成的base64，再來才會執行onloadend
+    reader.onloadend = () => {
+      setBase64(reader.result);
     };
   };
 
   const handlePostProduct = async () => {
     try {
-      await SellerService.post(photo.file, name, description, price);
+      const formData = new FormData();
+      formData.append("photo", photo);
+      formData.append("name", name);
+      formData.append("description", description);
+      formData.append("price", price);
+      await SellerService.post(formData);
       window.alert("成功新增商品");
       router.push("/seller");
     } catch (e) {
@@ -73,14 +146,30 @@ export default function CreateAndEditComponent({ sellerProduct }) {
 
   const handleEditProduct = async () => {
     try {
-      await SellerService.put(id, photo.file, name, description, price);
-      window.alert("成功編輯商品");
-      router.push("/seller");
+      if (file) {
+        // 如果有更新（上傳）圖片就
+        const formData = new FormData();
+        formData.append("photo", photo); // 新增這行
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("price", price);
+        await SellerService.put(id, formData);
+        window.alert("成功編輯商品");
+        router.push("/seller");
+      } else {
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("price", price);
+        await SellerService.put(id, formData);
+        window.alert("成功編輯商品");
+        router.push("/seller");
+      }
     } catch (e) {
       if (e.response && e.response.data) {
         setMessage(e.response.data);
       } else {
-        setMessage("發生未知錯誤，請重新上傳，或上傳檔案較小的圖片");
+        setMessage("發生未知錯誤");
       }
 
       console.log("message以外的ERROR：" + e);
@@ -147,8 +236,9 @@ export default function CreateAndEditComponent({ sellerProduct }) {
                 name="photo"
                 accept="image/*"
               />
-              {photo.file && <img src={photo.file} alt="圖片預覽" />}
+              <img src={base64} />
             </div>
+
             <div className={styles.formContainer}>
               <div className={styles.formItem}>
                 <span>名稱：</span>
@@ -223,21 +313,3 @@ export default function CreateAndEditComponent({ sellerProduct }) {
     </div>
   );
 }
-
-// function converToBase64(file) {
-//   return new Promise((resolve, reject) => {
-//     const fileReader = new FileReader();
-//     fileReader.readAsDataURL(file);
-//     fileReader.onload = () => {
-//       resolve(fileReader.result);
-//     };
-//     fileReader.onerror = (error) => {
-//       reject(error);
-//     };
-//   });
-// }
-// const handleFileUpload = async (e) => {
-//   const file = e.target.files[0];
-//   // const base64 = await converToBase64(file);
-//   setPhoto({ file: base64 });
-// };

@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import {
-  faBars,
-  faPhone,
-  faEnvelope,
-  faHouse,
-} from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faBars, faEnvelope, faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "../../styles/navStyles/navBar.module.scss";
 import AuthService from "../../service/auth.service";
@@ -18,7 +13,6 @@ export default function NavBarComponent() {
   const isLogin = router.pathname === "/user/login";
   const isRegister = router.pathname === "/user/register";
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleHome, setVisibleHome] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
   const handleCheckboxChange = () => {
@@ -27,15 +21,26 @@ export default function NavBarComponent() {
     // <768時會是false，反轉就是true
   };
 
+  // 處理登入登出後馬上更新導覽列
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await AuthService.getCurrentUser();
+      setCurrentUser(user);
+    };
+    getUser();
+    router.events.on("routeChangeStart", getUser);
+    return () => {
+      router.events.off("routeChangeStart", getUser);
+    };
+  }, []);
+
   // 處理rwd選單，導覽列是否顯示
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsVisible(true);
-        setVisibleHome(true);
       } else {
         setIsVisible(false);
-        setVisibleHome(false);
       }
     };
 
@@ -62,20 +67,6 @@ export default function NavBarComponent() {
 
     return () => {
       router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, []);
-
-  // 處理登入登出後馬上更新導覽列
-  useEffect(() => {
-    const getUser = () => {
-      const user = AuthService.getCurrentUser();
-      setCurrentUser(user);
-    };
-
-    router.events.on("routeChangeStart", getUser);
-
-    return () => {
-      router.events.off("routeChangeStart", getUser);
     };
   }, []);
 
@@ -117,7 +108,7 @@ export default function NavBarComponent() {
 
               {!isHome && (
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={() => window.location.reload()}>
                     <FontAwesomeIcon icon={faHouse} />
                   </Link>
                 </li>
@@ -125,7 +116,7 @@ export default function NavBarComponent() {
 
               <li>
                 <Link href="/">
-                  <FontAwesomeIcon icon={faPhone} />
+                  <FontAwesomeIcon icon={faGithub} />
                 </Link>
               </li>
               <li>
@@ -146,7 +137,6 @@ export default function NavBarComponent() {
                     <li>
                       <Link href="/seller">賣家中心</Link>
                     </li>
-
                     <li>
                       <Link href="/user/profile">會員中心</Link>
                     </li>
@@ -155,7 +145,6 @@ export default function NavBarComponent() {
                         <Link href="/user/cart">購物車</Link>
                       </li>
                     )}
-
                     {!currentUser && (
                       <li>
                         <Link href="/user/register">註冊</Link>

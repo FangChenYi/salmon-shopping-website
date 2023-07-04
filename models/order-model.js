@@ -44,7 +44,7 @@ const orderSchema = new Schema({
           required: true,
         },
         productPhoto: {
-          type: String,
+          type: Buffer,
           required: true,
         },
         productPrice: {

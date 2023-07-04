@@ -126,7 +126,6 @@ export default function CartComponent({}) {
                     product={product}
                     userID={userID}
                     setData={setData}
-                    group={group}
                     key={product._id}
                   />
                 ))}

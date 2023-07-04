@@ -1,6 +1,6 @@
 import axios from "axios";
 const API_CART_URL =
-  "http://localhost:8080/user/cart" ||
+  // "http://localhost:8080/user/cart";
   "https://salmon-shopping-website-e05c875d1abf.herokuapp.com/user/cart";
 
 class CartService {

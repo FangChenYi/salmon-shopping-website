@@ -1,10 +1,8 @@
 const router = require("express").Router();
 const registerValidation = require("../validation").registerValidation;
 const loginValidation = require("../validation").loginValidation;
-const Product = require("../models").product;
 const User = require("../models").user;
 const jwt = require("jsonwebtoken");
-const passport = require("passport");
 
 router.use((req, res, next) => {
   console.log("經過Auth...");

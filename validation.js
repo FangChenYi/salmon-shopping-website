@@ -41,9 +41,6 @@ const loginValidation = (data) => {
 
 const productValidation = (data) => {
   const schema = Joi.object({
-    photo: Joi.binary().required().messages({
-      "any.required": "圖片為必要項目",
-    }),
     name: Joi.string().trim().min(1).max(50).required().messages({
       "string.empty": "商品名稱為必填項目",
       "string.min": "商品名稱不得小於 1",

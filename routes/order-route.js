@@ -45,7 +45,7 @@ router.post("/:sellerID", async (req, res) => {
       user: req.user._id,
     }).exec();
     if (cartFound.length > 0) {
-      const orderID = generateOrderID();
+      const orderID = generateOrderID(); // 產生訂單編號
       const orderItems = {
         orderID: orderID,
         user: req.user._id,
@@ -57,6 +57,7 @@ router.post("/:sellerID", async (req, res) => {
           buyerID: req.user._id,
           buyerName: req.user.username,
         },
+
         orders: cartFound.map((cartItem) => ({
           product: {
             productID: cartItem.product.productID,

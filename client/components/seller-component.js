@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import CreateAndEditComponent from "./createAndEdit-component";
 import CartProductComponent from "./cartProduct-component";
 
-export default function SellerComponent({ windowWidth, setwindowWidth }) {
+export default function SellerComponent({ windowWidth }) {
   const router = useRouter();
   const inputRef = useRef(null);
   const buttonRef = useRef(null);

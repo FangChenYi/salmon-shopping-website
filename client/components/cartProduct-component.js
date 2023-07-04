@@ -5,12 +5,7 @@ import { useEffect, useState } from "react";
 import CartService from "../service/cart.service";
 import { useRouter } from "next/router";
 
-export default function CartProductComponent({
-  product,
-  userID,
-  setData,
-  group,
-}) {
+export default function CartProductComponent({ product, userID, setData }) {
   const router = useRouter();
   const isCart = router.pathname === "/user/cart";
   const isOrder = router.pathname === "/user/order";
@@ -21,6 +16,35 @@ export default function CartProductComponent({
   const [totalAmount, setTotalAmount] = useState(
     product.productPrice * product.productQuantity
   );
+  const [cartPhotoBase64, setCartPhotoBase64] = useState("");
+  const [orderPhotoBase64, setOrderPhotoBase64] = useState("");
+
+  useEffect(() => {
+    const photoTobase64 = async () => {
+      try {
+        if (isCart) {
+          const cartPhotoBase64 = await bufferToBase64(
+            product.productPhoto.data
+          );
+          setCartPhotoBase64(`data:image/png;base64,${cartPhotoBase64}`);
+        }
+        if (isOrder || isSellerOrder) {
+          const orderPhotoBase64 = await bufferToBase64(
+            product.product.productPhoto.data
+          );
+          setOrderPhotoBase64(`data:image/png;base64,${orderPhotoBase64}`);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    photoTobase64();
+  }, []);
+
+  const bufferToBase64 = (buffer) => {
+    const buf = Buffer.from(buffer, "utf8");
+    return buf.toString("base64");
+  };
 
   const handleQuantityMinus = async () => {
     if (productQuantity > 1) {
@@ -61,7 +85,7 @@ export default function CartProductComponent({
       {isCart && (
         <div className={styles.shopProductItem}>
           <div className={styles.shopProductPhoto}>
-            <img src={product.productPhoto} alt="商品圖片" />
+            <img src={cartPhotoBase64} alt="商品圖片" />
           </div>
           <div className={styles.shopProductContent}>
             <div className={styles.shopProductContentItem}>
@@ -122,7 +146,7 @@ export default function CartProductComponent({
       {(isOrder || isSellerOrder) && (
         <div className={styles.shopProductItem}>
           <div className={styles.shopProductPhoto}>
-            <img src={product.product.productPhoto} alt="商品圖片" />
+            <img src={orderPhotoBase64} alt="商品圖片" />
           </div>
           <div className={styles.shopProductContent}>
             <div className={styles.shopProductContentItem}>

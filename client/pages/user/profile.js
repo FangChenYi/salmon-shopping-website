@@ -25,16 +25,10 @@ export default function Profile({}) {
             <div className={styles.profileItem}>
               <p>以下是您的個人資料</p>
             </div>
-            {/* {session && (
-              <div className={styles.profileItem}>
-                <img src={session.user.image}></img>
-              </div>
-            )} */}
-
             <div className={styles.profileItem}>
               <span>
                 姓名：
-                {currentUser.user._id}
+                {currentUser.user.username}
               </span>
             </div>
             <div className={styles.profileItem}>
