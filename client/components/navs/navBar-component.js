@@ -74,10 +74,7 @@ export default function NavBarComponent() {
     if (currentUser) {
       AuthService.logout();
       setCurrentUser(null);
-    } else {
-      await signOut("google");
     }
-
     window.alert("已登出，導向至首頁");
     router.push("/");
   };
@@ -115,17 +112,23 @@ export default function NavBarComponent() {
               )}
 
               <li>
-                <Link href="/">
+                <Link
+                  target="_blank"
+                  href="https://github.com/FangChengYi/salmon-shopping-website"
+                >
                   <FontAwesomeIcon icon={faGithub} />
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <a target="_blank" href="mailto:fx17896@gmail.com">
                   <FontAwesomeIcon icon={faEnvelope} />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/">
+                <Link
+                  target="_blank"
+                  href="https://www.linkedin.com/in/chengyi-fang-926b3525a/"
+                >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </Link>
               </li>
