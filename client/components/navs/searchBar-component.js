@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import styles from "../../styles/navStyles/searchBar.module.scss";
+import styles from "../../styles/headerStyles/searchBar.module.scss";
 
 export default function SearchBarComponent({
   setSearchInput,

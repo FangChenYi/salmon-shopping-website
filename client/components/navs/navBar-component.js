@@ -4,7 +4,7 @@ import Link from "next/link";
 import { faBars, faEnvelope, faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "../../styles/navStyles/navBar.module.scss";
+import styles from "../../styles/headerStyles/navBar.module.scss";
 import AuthService from "../../service/auth.service";
 
 export default function NavBarComponent() {
@@ -76,7 +76,6 @@ export default function NavBarComponent() {
       setCurrentUser(null);
     }
     window.alert("已登出，導向至首頁");
-    router.push("/");
   };
 
   return (
@@ -88,89 +87,87 @@ export default function NavBarComponent() {
           onChange={handleCheckboxChange}
         />
       </div>
-      <div className={styles.header}>
-        <div className={styles.navContainer}>
-          <div className={styles.container}>
-            <label htmlFor="menuControl" className={styles.menuBtn}>
-              <FontAwesomeIcon icon={faBars} />
-            </label>
-            <div className={styles.navIcon}>
-              {isHome && !isVisible && (
-                <li>
-                  <Link href="/" onClick={() => window.location.reload()}>
-                    <FontAwesomeIcon icon={faHouse} />
-                  </Link>
-                </li>
-              )}
-
-              {!isHome && (
-                <li>
-                  <Link href="/" onClick={() => window.location.reload()}>
-                    <FontAwesomeIcon icon={faHouse} />
-                  </Link>
-                </li>
-              )}
-
+      <div className={styles.navContainer}>
+        <div className={styles.container}>
+          <label htmlFor="menuControl" className={styles.menuBtn}>
+            <FontAwesomeIcon icon={faBars} />
+          </label>
+          <div className={styles.navIcon}>
+            {isHome && !isVisible && (
               <li>
-                <Link
-                  target="_blank"
-                  href="https://github.com/FangChengYi/salmon-shopping-website"
-                >
-                  <FontAwesomeIcon icon={faGithub} />
+                <Link href="/" onClick={() => window.location.reload()}>
+                  <FontAwesomeIcon icon={faHouse} />
                 </Link>
               </li>
-              <li>
-                <a target="_blank" href="mailto:fx17896@gmail.com">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </a>
-              </li>
-              <li>
-                <Link
-                  target="_blank"
-                  href="https://www.linkedin.com/in/chengyi-fang-926b3525a/"
-                >
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </Link>
-              </li>
-            </div>
-            {isVisible && (
-              <div className={styles.navMember}>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link href="/seller">賣家中心</Link>
-                    </li>
-                    <li>
-                      <Link href="/user/profile">會員中心</Link>
-                    </li>
-                    {!isHome && !isRegister && !isLogin && (
-                      <li>
-                        <Link href="/user/cart">購物車</Link>
-                      </li>
-                    )}
-                    {!currentUser && (
-                      <li>
-                        <Link href="/user/register">註冊</Link>
-                      </li>
-                    )}
-                    {!currentUser && (
-                      <li>
-                        <Link href="/user/login">登入</Link>
-                      </li>
-                    )}
-
-                    {currentUser && (
-                      <li>
-                        <Link onClick={handleLogout} href="/">
-                          登出
-                        </Link>
-                      </li>
-                    )}
-                  </ul>
-                </nav>
-              </div>
             )}
+
+            {!isHome && (
+              <li>
+                <Link href="/" onClick={() => window.location.reload()}>
+                  <FontAwesomeIcon icon={faHouse} />
+                </Link>
+              </li>
+            )}
+
+            <li>
+              <Link
+                target="_blank"
+                href="https://github.com/FangChengYi/salmon-shopping-website"
+              >
+                <FontAwesomeIcon icon={faGithub} />
+              </Link>
+            </li>
+            <li>
+              <a target="_blank" href="mailto:fx17896@gmail.com">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </a>
+            </li>
+            <li>
+              <Link
+                target="_blank"
+                href="https://www.linkedin.com/in/chengyi-fang-926b3525a/"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </Link>
+            </li>
           </div>
+          {isVisible && (
+            <div className={styles.navMember}>
+              <nav>
+                <ul>
+                  <li>
+                    <Link href="/seller">賣家中心</Link>
+                  </li>
+                  <li>
+                    <Link href="/user/profile">會員中心</Link>
+                  </li>
+                  {!isHome && !isRegister && !isLogin && (
+                    <li>
+                      <Link href="/user/cart">購物車</Link>
+                    </li>
+                  )}
+                  {!currentUser && (
+                    <li>
+                      <Link href="/user/register">註冊</Link>
+                    </li>
+                  )}
+                  {!currentUser && (
+                    <li>
+                      <Link href="/user/login">登入</Link>
+                    </li>
+                  )}
+
+                  {currentUser && (
+                    <li>
+                      <Link onClick={handleLogout} href="/">
+                        登出
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+              </nav>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import styles from "../../styles/navStyles/memberBar.module.scss";
+import styles from "../../styles/headerStyles/memberBar.module.scss";
 
 export default function NavStateComponent({}) {
   const router = useRouter();

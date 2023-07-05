@@ -6,5 +6,9 @@
 }
 
 body {
-  background-color: rgb(111, 156, 196);
+  background-color: #fdeedc;
+}
+
+header {
+  background-color: #ffa755;
 }

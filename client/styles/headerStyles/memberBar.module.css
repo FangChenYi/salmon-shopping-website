@@ -1,0 +1,27 @@
+.stateContainer {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.stateContainer .container {
+  margin-left: 15px;
+}
+
+.stateContainer .container .userState {
+  font-size: 1.2em;
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .stateContainer .container {
+    width: 1200px;
+    margin: auto;
+  }
+  .stateContainer .container .userState {
+    font-size: 1.7em;
+  }
+}
+/*# sourceMappingURL=memberBar.module.css.map */

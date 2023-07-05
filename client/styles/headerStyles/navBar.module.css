@@ -1,0 +1,122 @@
+.hidden {
+  display: none;
+}
+
+.navContainer {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.navContainer .menuBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #fff;
+}
+
+.navContainer .navIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  padding-left: 15px;
+}
+
+.navContainer .navIcon li + li {
+  padding-left: 20px;
+}
+
+.navContainer .navIcon a {
+  font-size: 25px;
+  color: #fff;
+}
+
+.navContainer .navMember nav {
+  background-color: #f6ba6f;
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  z-index: 1;
+}
+
+.navContainer .navMember nav li {
+  text-align: center;
+}
+
+.navContainer .navMember nav li a {
+  font-size: 1.5rem;
+  display: block;
+  padding: 20px 0;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.navContainer .navMember nav li a:hover {
+  color: #ff7b00;
+}
+
+#menuControl:checked ~ .header .navMember nav {
+  right: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .menuBtn {
+    display: none;
+  }
+  .navContainer {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+  }
+  .navContainer .container {
+    width: 1200px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .navContainer .container .navIcon {
+    padding-left: 0;
+  }
+  .navContainer .container .navMember {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navContainer .container .navMember nav {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+  .navContainer .container .navMember nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .navContainer .container .navMember nav ul li + li {
+    padding-left: 20px;
+  }
+  .navContainer .container .navMember nav ul a {
+    padding: 0;
+  }
+}
+/*# sourceMappingURL=navBar.module.css.map */

@@ -1,7 +1,7 @@
 import AuthService from "../../service/auth.service";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import styles from "../../styles/profile.module.scss";
+import styles from "../../styles/profileStyles/profile.module.scss";
 
 export default function Profile({}) {
   const router = useRouter();

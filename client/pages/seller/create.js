@@ -1,4 +1,4 @@
-import SellerComponent from "../../components/seller-component";
+import SellerComponent from "../../components/sellers/seller-component";
 
 export default function Create({}) {
   return (

@@ -1,3 +1,7 @@
+$btnColor: #ffaa68;
+$btnHover: #ffb882;
+$paragraph: rgb(125, 125, 125);
+
 .btn {
   position: fixed;
   bottom: 10px;
@@ -6,12 +10,12 @@
   border: none;
   padding: 15px 10px;
   color: #fff;
-  background-color: rgba(26, 115, 182, 0.8);
+  background-color: $btnColor;
 }
 
 .noItem {
   font-size: 2em;
-  color: #11426f;
+  color: $btnColor;
   text-align: center;
   padding-top: 10px;
 }
@@ -33,8 +37,6 @@
       .sortItem {
         .latest {
         }
-        .hotest {
-        }
         .lowToHighSort {
         }
         .HighToLowSort {
@@ -47,11 +49,14 @@
           border: none;
           box-shadow: none;
           outline: none;
-          background-color: rgb(68, 121, 156);
+          background-color: $btnColor;
           color: #fff;
           padding: 5px;
           border-radius: 5px;
           font-size: 12px;
+        }
+        button:hover {
+          background-color: $btnHover;
         }
       }
     }
@@ -65,8 +70,6 @@
         }
         .sortItem {
           .latest {
-          }
-          .hotest {
           }
           .lowToHighSort {
           }
@@ -87,8 +90,6 @@
       }
       .sortItem {
         .latest {
-        }
-        .hotest {
         }
         .lowToHighSort {
         }
@@ -112,8 +113,6 @@
           margin-left: 30px;
           .latest {
           }
-          .hotest {
-          }
           .lowToHighSort {
           }
           .HighToLowSort {
@@ -135,13 +134,13 @@
       padding-left: 20px;
     }
     .sortAndScope {
+      margin-top: 20px;
       width: 220px;
       .sortAndScopeItem + .sortAndScopeItem {
-        border-top: 1px solid rgb(68, 121, 156);
+        border-top: 1px solid $btnColor;
         margin-top: 20px;
       }
       .sortAndScopeItem {
-        margin-top: 10px;
         .sortContainer {
           display: block;
           .sortItem + .sortItem {
@@ -150,8 +149,6 @@
           .sortItem {
             margin: 0;
             .latest {
-            }
-            .hotest {
             }
             .lowToHighSort {
             }
@@ -172,6 +169,7 @@
           .priceScopeItem {
             p {
               font-size: 1.2em;
+              color: $paragraph;
             }
             button {
               cursor: pointer;
@@ -179,28 +177,35 @@
               border: none;
               box-shadow: none;
               outline: none;
-              background-color: rgb(68, 121, 156);
+              background-color: $btnColor;
               color: #fff;
               padding: 5px;
               border-radius: 5px;
               font-size: 1em;
+            }
+            button:hover {
+              background-color: $btnHover;
             }
             .priceScopeInput {
               display: flex;
               justify-content: space-between;
               align-items: center;
               .priceScopeInputItem {
+                height: 30px;
                 p {
+                  display: flex;
+                  align-items: center;
+                  height: 100%;
                   padding: 0 10px;
-                  vertical-align: middle;
                 }
                 input {
                   width: 60px;
-                  height: 30px;
-                  font-size: 1em;
+                  height: 100%;
+                  font-size: 0.9em;
                   text-align: center;
                   border: none;
                   border-radius: 5px;
+                  outline: none;
                 }
               }
             }
@@ -215,6 +220,7 @@
           .sellerScopeItem {
             p {
               font-size: 1.2em;
+              color: $paragraph;
             }
             input {
               width: 100%;
@@ -223,6 +229,7 @@
               text-align: center;
               border: none;
               border-radius: 5px;
+              outline: none;
             }
             button {
               cursor: pointer;
@@ -230,11 +237,14 @@
               border: none;
               box-shadow: none;
               outline: none;
-              background-color: rgb(68, 121, 156);
+              background-color: $btnColor;
               color: #fff;
               padding: 5px;
               border-radius: 5px;
               font-size: 1em;
+            }
+            button:hover {
+              background-color: $btnHover;
             }
           }
         }

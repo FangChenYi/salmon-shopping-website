@@ -1,5 +1,5 @@
-import CartComponent from "../../components/cart-component";
-import styles from "../../styles/cart.module.scss";
+import CartComponent from "../../components/carts/cart-component";
+import styles from "../../styles/cartStyles/cart.module.scss";
 
 export default function Cart({}) {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/searchScope/searchScope.module.scss";
-import productStyles from "../styles/product.module.scss";
-import Product from "../components/product-component";
+import productStyles from "../styles/productStyles/product.module.scss";
+import Product from "../components/product/product-component";
 import SearchBarComponent from "../components/navs/searchBar-component";
 
 export default function Home({ products }) {
@@ -140,6 +140,7 @@ export default function Home({ products }) {
                       <input
                         type="text"
                         value={minPrice}
+                        placeholder="$ 最小值"
                         ref={inputRef}
                         onKeyDown={handleEnterPress}
                         onChange={(e) => setMinPrice(e.target.value)}
@@ -152,6 +153,7 @@ export default function Home({ products }) {
                       <input
                         type="text"
                         value={maxPrice}
+                        placeholder="$ 最大值"
                         ref={inputRef}
                         onKeyDown={handleEnterPress}
                         onChange={(e) => setMaxPrice(e.target.value)}
@@ -177,6 +179,7 @@ export default function Home({ products }) {
                   <input
                     type="text"
                     value={sellerInput}
+                    placeholder="賣家名稱"
                     ref={inputRef}
                     onKeyDown={handleEnterPress}
                     onChange={(e) => setSellerInput(e.target.value)}
