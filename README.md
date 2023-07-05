@@ -43,8 +43,9 @@ Express 框架： Express 提供 Route、Middleware 等諸多工具，可以快�
 
 ### 資料庫
 
-使用 MongoDB（ NoSQL 非關連式資料庫 ），相較於傳統的關聯式資料庫，NoSQL 有以下優點：  
+MongoDB（ NoSQL 非關連式資料庫 ），相較於傳統的關聯式資料庫，NoSQL 有以下優點：  
 靈活的資料模型、可擴展性和高性能、易開發和維護以及彈性的可用性和故障恢復。
+Node.js、MongoDB 透過 Mongoose 將 JavaScript 中的 Object 轉換成 MongoDB 中的 Document，利於開發時與資料庫的互動。
 
 ### 登入系統
 

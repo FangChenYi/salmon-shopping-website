@@ -76,6 +76,10 @@
   color: #fff;
 }
 
+.searchContainer .container .searchBtn button:hover {
+  background-color: #ffb882;
+}
+
 .searchContainer .searchCart {
   width: 20%;
 }
