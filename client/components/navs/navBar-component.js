@@ -95,15 +95,15 @@ export default function NavBarComponent() {
           <div className={styles.navIcon}>
             {isHome && !isVisible && (
               <li>
-                <Link href="/" onClick={() => window.location.reload()}>
+                <a href="/">
                   <FontAwesomeIcon icon={faHouse} />
-                </Link>
+                </a>
               </li>
             )}
 
             {!isHome && (
               <li>
-                <Link href="/" onClick={() => window.location.reload()}>
+                <Link href="/" onClick={() => (window.location.href = "/")}>
                   <FontAwesomeIcon icon={faHouse} />
                 </Link>
               </li>
