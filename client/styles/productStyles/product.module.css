@@ -171,10 +171,10 @@
     font-size: 1em;
   }
   .products .productContainer .product .productItem .productDescription p {
-    font-size: 1em;
+    font-size: 0.9em;
   }
   .products .productContainer .product .productItem .productPrice p {
-    font-size: 1em;
+    font-size: 15px;
   }
   .products .productContainer .product .productSellerCartContainer {
     height: 28px;
@@ -183,7 +183,7 @@
     height: 100%;
   }
   .products .productContainer .product .productSellerCartContainer .productSeller p {
-    font-size: 1.1em;
+    font-size: 1em;
   }
   .products .productContainer .product .productSellerCartContainer .productBtn a {
     font-size: 1.5em;
