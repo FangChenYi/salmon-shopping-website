@@ -112,7 +112,7 @@ export default function NavBarComponent() {
             <li>
               <Link
                 target="_blank"
-                href="https://github.com/FangChengYi/salmon-shopping-website"
+                href="https://github.com/FangChenYi/salmon-shopping-website"
               >
                 <FontAwesomeIcon icon={faGithub} />
               </Link>
@@ -125,7 +125,7 @@ export default function NavBarComponent() {
             <li>
               <Link
                 target="_blank"
-                href="https://www.linkedin.com/in/chengyi-fang-926b3525a/"
+                href="https://www.linkedin.com/in/chenyi-fang-926b3525a/"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </Link>

@@ -43,7 +43,6 @@
           }
         }
         .productDescription {
-          height: 20px;
           p {
             height: 100%;
             font-size: 0.8em;
@@ -204,6 +203,7 @@
             }
           }
           .productDescription {
+            background-color: red;
             p {
               font-size: 1em;
             }

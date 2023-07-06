@@ -63,10 +63,6 @@
   text-overflow: ellipsis;
 }
 
-.products .productContainer .product .productItem .productDescription {
-  height: 20px;
-}
-
 .products .productContainer .product .productItem .productDescription p {
   height: 100%;
   font-size: 0.8em;
@@ -160,6 +156,9 @@
   }
   .products .productContainer .product .productItem .productName h1 {
     font-size: 1.3em;
+  }
+  .products .productContainer .product .productItem .productDescription {
+    background-color: red;
   }
   .products .productContainer .product .productItem .productDescription p {
     font-size: 1em;
