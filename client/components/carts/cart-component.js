@@ -78,7 +78,7 @@ export default function CartComponent({}) {
         if (response) {
           setOrderID(response.data.newOrder._id);
           window.alert("成功送出訂單");
-          router.push("/user/order");
+          window.location.reload();
         } else {
           window.alert("發生未知錯誤");
         }

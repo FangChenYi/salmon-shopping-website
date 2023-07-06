@@ -12,8 +12,8 @@ const path = require("path");
 const port = process.env.PORT || 8080;
 
 mongoose
-  .connect(process.env.MONGODB_CONNECTION)
-  // .connect("mongodb://localhost:27017/projectDB")
+  // .connect(process.env.MONGODB_CONNECTION)
+  .connect("mongodb://localhost:27017/projectDB")
   .then(() => {
     console.log("Connecting to mongodb..");
   })

@@ -76,6 +76,7 @@ export default function NavBarComponent() {
       setCurrentUser(null);
     }
     window.alert("已登出，導向至首頁");
+    window.location.href = "/";
   };
 
   return (
