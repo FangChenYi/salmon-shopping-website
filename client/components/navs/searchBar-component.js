@@ -36,7 +36,7 @@ export default function SearchBarComponent({
                 value={searchInput}
                 ref={inputRef}
                 onKeyDown={handleEnterPress}
-                placeholder="註冊獲得全站購物金"
+                placeholder="肥貓"
               />
             </div>
             <div className={styles.searchBtn}>
