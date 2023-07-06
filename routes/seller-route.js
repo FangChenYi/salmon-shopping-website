@@ -183,12 +183,4 @@ router.delete("/edit/:_id", async (req, res) => {
   }
 });
 
-// router.delete("/", async (req, res) => {
-//   try {
-//     await Product.deleteMany({}).exec();
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
-
 module.exports = router;
