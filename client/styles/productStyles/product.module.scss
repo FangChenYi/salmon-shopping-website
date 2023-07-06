@@ -32,20 +32,21 @@
       .productItem {
         box-sizing: border-box;
         .productName {
+          height: 40px;
           h1 {
-            font-size: 1.2em;
+            height: 100%;
+            font-size: 0.8em;
             font-weight: normal;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
+            -webkit-line-clamp: 2;
             overflow: hidden;
             text-overflow: ellipsis;
           }
         }
         .productDescription {
           p {
-            height: 100%;
-            font-size: 0.8em;
+            font-size: 0.6em;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1;
@@ -149,11 +150,14 @@
 
         .productItem {
           .productName {
+            height: 42px;
             h1 {
+              font-size: 0.9em;
             }
           }
           .productDescription {
             p {
+              font-size: 0.7em;
             }
           }
           .productPrice {
@@ -199,7 +203,7 @@
         .productItem {
           .productName {
             h1 {
-              font-size: 1.3em;
+              font-size: 1em;
             }
           }
           .productDescription {

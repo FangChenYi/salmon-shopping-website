@@ -119,20 +119,16 @@ export default function SellerComponent({ windowWidth }) {
                 </button>
               </div>
 
+              <div className={searchScopeStyles.sortItem}>
+                <button>
+                  <Link href="/seller/create">新增商品</Link>
+                </button>
+              </div>
               {isSeller && (
-                <div className={searchScopeStyles.sortItem}>
-                  <button>
-                    <Link href="/seller/create">新增商品</Link>
-                  </button>
-                </div>
-              )}
-
-              {isSeller && sellerProduct && (
                 <div className={searchScopeStyles.sortItem}>
                   <button onClick={handleSortLatest}>由新到舊排序</button>
                 </div>
               )}
-
               <div className={searchScopeStyles.sortItem}>
                 <button>
                   <Link onClick={handleAllProduct} href="/seller">
