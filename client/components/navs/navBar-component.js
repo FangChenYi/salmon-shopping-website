@@ -108,7 +108,6 @@ export default function NavBarComponent() {
                 </Link>
               </li>
             )}
-
             <li>
               <Link
                 target="_blank"
@@ -118,17 +117,17 @@ export default function NavBarComponent() {
               </Link>
             </li>
             <li>
-              <a target="_blank" href="mailto:fx17896@gmail.com">
-                <FontAwesomeIcon icon={faEnvelope} />
-              </a>
-            </li>
-            <li>
               <Link
                 target="_blank"
                 href="https://www.linkedin.com/in/chenyi-fang-926b3525a/"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </Link>
+            </li>
+            <li>
+              <a target="_blank" href="mailto:fx17896@gmail.com">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </a>
             </li>
           </div>
           {isVisible && (
