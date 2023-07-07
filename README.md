@@ -11,7 +11,7 @@
 提供搜尋功能，使用者可以根據以下條件進行商品搜尋：  
 價格：使用者可以輸入最低價格和最高價格，以範圍搜尋商品。  
 賣家名稱：使用者可以輸入賣家名稱，以尋找特定賣家的商品。
-<img src="/demo/home.png">
+![Cat GIF](/demo/searchProduct.gif)
 
 ### 買家
 
@@ -19,16 +19,16 @@
 查看購物車內的商品列表和總金額。  
 確認訂單後，可以將訂單送出、查看訂單資訊。  
 送出訂單後，賣家將收到該訂單的相關資訊，包括買家資訊、訂單內容和金額。
-<img src="/demo/cart.png">
-<img src="/demo/buyerOrder.png">
+![Cat GIF](/demo/cart.gif)
 
 ### 賣家
 
 新增商品：賣家可以新增商品，包括商品圖片、名稱、描述和價格等資訊。  
 編輯商品：賣家可以編輯現有的商品資訊，包括商品圖片、名稱、描述和價格。  
 訂單系統：賣家可以查看接收到的訂單列表，包括買家資訊、訂單內容和金額。
-<img src="/demo/edit.png">
-<img src="/demo/sellerOrder.png">
+![Cat GIF](/demo/createProduct.gif)
+![Cat GIF](/demo/editProduct.gif)
+![Cat GIF](/demo/order.gif)
 
 ## 技術細節
 
